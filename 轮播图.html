@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>轮播图</title>
+        <style>
+            .class-slide {
+                position: relative;
+                width: 790px;
+            }
+
+            .class-slide-image {
+                display: none;
+            }
+
+            .class-active {
+                display: inline-block;
+
+
+            .class-slide-button {
+                height: 50px;
+                width: 30px;
+                background: black;
+                opacity: 0.3;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .class-left {
+                left: 0;
+            }
+
+            .class-right {
+                right: 0;
+            }
+
+            .class-vertical-center {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .class-slide-indicators {
+                position: absolute;
+                left: 50%;
+                bottom: 30px;
+                text-align: center;
+                transform: translateX(-50%);
+            }
+
+            .class-slide-indi {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: red;
+            }
+
+            .class-white {
+                background: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- data-imgs 是图片的总数 -->
+        <!-- data-active 是当前显示的图片的下标 -->
+        <div class="class-slide" data-imgs="3" data-active="0">
+            <img id="id-classimage-0" class="class-slide-image class-active" src="slideimages/1.jpg" alt="">
+            <img id="id-classimage-1" class="class-slide-image" src="slideimages/2.jpg" alt="">
+            <img id="id-classimage-2" class="class-slide-image" src="slideimages/3.jpg" alt="">
+
+            <button class="class-slide-button class-left class-vertical-center" data-offset="-1">&lt;</button>
+            <button class="class-slide-button class-right class-vertical-center" data-offset="1">&gt;</button>
+            <!-- 小圆点 -->
+            <div class="class-slide-indicators">
+                <div id="id-indi-0" class="class-slide-indi class-white"
+                    data-index="0"></div>
+                <div id="id-indi-1" class="class-slide-indi"
+                    data-index="1"></div>
+                <div id="id-indi-2" class="class-slide-indi"
+                    data-index="2"></div>
+            </div>
+        </div>
+        <script src="zjy.js"></script>
+        <script src="slide.js"></script>
+    </body>
+</html>
