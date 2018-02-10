@@ -32,6 +32,7 @@ var bindEventSlide = function() {
         var offset = Number(button.dataset.offset)
         var index = nextIndex(slide, offset)
         showImageAtIndex(slide, index)
+        safe = false
     })
 }
 
@@ -45,6 +46,7 @@ var bindEventIndicator = function() {
         var slide = self.closest('.class-slide')
         // 直接播放第 n 张图片
         showImageAtIndex(slide, index)
+        safe = false
     })
 }
 
@@ -57,18 +59,22 @@ var playNextImage = function() {
 
 // 每 2s轮播
 var autoPlay = function() {
+    safe = true
     var interval = 2000
     setInterval(function() {
-        playNextImage()
+        if (safe) {
+            playNextImage()
+        }
+        else {
+            safe = true
+        }
     }, interval)
 }
-
-bindEventSlide()
-bindEventIndicator()
-autoPlay()
 
 var slideimages = function() {
     bindEventSlide()
     bindEventIndicator()
     autoPlay()
 }
+
+slideimages()
